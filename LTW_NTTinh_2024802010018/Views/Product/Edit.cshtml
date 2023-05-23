@@ -1,0 +1,160 @@
+﻿@model LTW_NTTinh_2024802010018.Models.Product
+<style>
+    * {
+        font-size: large;
+    }
+</style>
+@{
+    List<SelectListItem> list = new List<SelectListItem>();
+    list.Add(new SelectListItem
+    {
+        Text = "Cái",
+        Value = "Cái",
+        Selected = true
+    });
+    list.Add(new SelectListItem
+    {
+        Text = "Ly",
+        Value = "Ly",
+        Selected = false
+    });
+    list.Add(new SelectListItem
+    {
+        Text = "Thùng",
+        Value = "Thùng",
+        Selected = false
+    });
+    list.Add(new SelectListItem
+    {
+        Text = "Hộp",
+        Value = "Hộp",
+        Selected = false
+    });
+    list.Add(new SelectListItem
+    {
+        Text = "Bộ",
+        Value = "Bộ",
+        Selected = false
+    });
+    list.Add(new SelectListItem
+    {
+        Text = "Phần",
+        Value = "Phần",
+        Selected = false
+    });
+    list.Add(new SelectListItem
+    {
+        Text = "Gói",
+        Value = "Gói",
+        Selected = false
+    });
+    list.Add(new SelectListItem
+    {
+        Text = "Kg",
+        Value = "Kg",
+        Selected = false
+    });
+    list.Add(new SelectListItem
+    {
+        Text = "Chai",
+        Value = "Chai",
+        Selected = false
+    });
+    list.Add(new SelectListItem
+    {
+        Text = "Hủ",
+        Value = "Hủ",
+        Selected = false
+    });
+}
+<div class="modal fade" id="edit-@Model.ProductID" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div style="min-width:1300px;" class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 style="text-align:center" class="modal-title" id="exampleModalLabel">CHỈNH SỬA THÔNG TIN</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            @using (Html.BeginForm("Edit", "Product", FormMethod.Post, new
+            {
+                @enctype = "multipart/form-data"
+            }))
+            {
+                <div class="modal-body">
+                    <div class="form-horizontal" style="margin-top:30px;">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Mã sản phẩm: </label>
+                            <div class="col-md-10">
+                                <input type="text" size="70" name="ProductsID" disabled value="@Model.ProductID" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Tên sản phẩm: </label>
+                            <div class="col-md-10">
+                                <input type="text" size="70" placeholder="Nhập tên sản phẩm" name="Name" value="@Model.ProductName" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Mô tả: </label>
+                            <div class="col-md-10">
+                                <input maxlength="500" type="text" placeholder="Nhập mô tả" size="90" id="Description1" name="Description" value="@Model.Description" required />
+                                <script>CKEDITOR.replace('Description1');</script>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Đơn vị: </label>
+                            <div class="col-md-10">
+                                @Html.DropDownList("Unit", list, Model.Unit)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Giá: </label>
+                            <div class="col-md-10">
+                                <input type="number" placeholder="Nhập giá" size="70" id="Price" name="Price" value="@Model.Price" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Mã nhà cung cấp: </label>
+                            <div class="col-md-10">
+                                @Html.DropDownList("Provider")
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Số lượng: </label>
+                            <div class="col-md-10">
+                                <input type="number" placeholder="Nhập số lượng" size="30" id="Quantity" name="Quantity" value="@Model.Quantity" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Mã danh mục: </label>
+                            <div class="col-md-10">
+                                @Html.DropDownList("Category")
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Khuyến mãi: </label>
+                            <div class="col-md-10">
+                                <input type="number" placeholder="Nhập khuyến mãi" size="30" id="Sale" name="Sale" value="@Model.Sale" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Logo:</label>
+                            <div class="col-md-10">
+                                <input type="file" name="fFileUpload" />
+                                <img style="border:1px solid;" src="~/Images/@Model.Picture" width="120"> (Ảnh hiện tại)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
+                    <input id="popup" type="submit" value="Lưu" style="font-size:large" class="btn btn-success" />
+                </div>
+            }
+        </div>
+    </div>
+</div>

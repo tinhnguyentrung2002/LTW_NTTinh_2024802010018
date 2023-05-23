@@ -1,0 +1,8 @@
+﻿@model IEnumerable<LTW_NTTinh_2024802010018.Models.Provider>
+<ul class="list-group">
+    <li class="list-group-item active" style="font-weight:bold; text-align:center">LỌC THEO NHÀ CUNG CẤP</li>
+    @foreach (var item in Model)
+    {
+        <li style="list-style:none;list-style-type:none"><a style="background-color:aliceblue" href="@Url.Action("provider_product", "Mart", new {id = item.ProviderID,i = 1})" class="nav-item nav-link">@item.ProviderName</a></li>
+    }
+</ul>

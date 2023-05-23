@@ -1,0 +1,89 @@
+﻿@using LTW_NTTinh_2024802010018.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<New>
+
+@{
+    ViewBag.Title = "Tin tức";
+    Layout = "~/Views/Shared/_LayoutMart.cshtml";
+}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+<link href="~/Content/mdb.min.css" rel="stylesheet" />
+@helper Truncate(string s, int length)
+{
+    if (s.Length < length)
+    {
+        @s
+    }
+    else
+    {
+        @s.Substring(0, length)<text>...</text>
+    }
+}
+<style>
+    #intro {
+        /* Margin to fix overlapping fixed navbar */
+        margin-top: 58px;
+    }
+
+    #intro {
+        /* Margin to fix overlapping fixed navbar */
+        margin-top: 45px;
+    }
+</style>
+
+
+
+<div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">TIN TỨC</h1>
+        <div class="d-inline-flex">
+            <p class="m-0"><a href="@Url.Action("Index","Mart")">Trang chủ</a></p>
+            <p class="m-0 px-2">-</p>
+            <p class="m-0">Tin tức</p>
+        </div>
+    </div>
+</div>
+<main class="my-5">
+    <div class="container">
+        <!--Section: Content-->
+        <section class="text-center">
+            <h4 class="mb-5"><strong>Bài viết mới nhất</strong></h4>
+
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4 col-md-12 mb-4">
+                        <div class="card">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img src="~/Images/@item.Thumbnail" class="img-fluid" />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">@item.NewsTitle</h5>
+                                <h7 style="color:darkblue">posted by @item.NewsAuthor</h7>
+                                <p class="card-text">
+                                    @Truncate(item.NewsContent, 200)
+                                </p>
+                                <a href="@Url.Action("read_news", "Mart", new {id = item.NewsID})" class="btn btn-primary">Đọc</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div><span>Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount</span></div>
+            <div class="MenuTrang">
+                @Html.PagedListPager(Model, page => Url.Action("news_mart", new
+            {
+               page = page
+            }))
+            </div>
+        </section>
+        <!--Section: Content-->
+    </div>
+
+</main>
+
+<script src="~/Scripts/mdb.min.js"></script>

@@ -1,0 +1,95 @@
+﻿@model LTW_NTTinh_2024802010018.Models.User
+@{
+    ViewBag.Title = "Đăng ký";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="~/styleregis.css" rel="stylesheet" />
+    <link rel="icon" href="~/Images/user.png">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body class="form-v5">
+    @{ 
+        List<SelectListItem> list = new List<SelectListItem>();
+        list.Add(new SelectListItem
+        {
+            Text = "Nam",
+            Value = "Nam",
+            Selected = false
+        });
+        list.Add(new SelectListItem
+        {
+            Text = "Nữ",
+            Value = "Nữ",
+            Selected = false
+        });
+    }
+    <div class="page-content">
+        <div class="form-v5-content">
+            <form class="form-detail" action="#" method="post">
+                <p style="color:red">@ViewBag.ThongBao</p>
+                <h2>ĐĂNG KÝ</h2>
+                @using (Html.BeginForm())
+                {
+                    @Html.ValidationSummary(true)
+                    <div class="form-row">
+                        <label for="full-name">Tên đăng nhập: </label>
+                        <input type="text" name="UserName" id="full-name" class="input-text"  value=""  placeholder="Tên đăng nhập" required>
+                        <p class="text-danger" style="color:red">@Html.ValidationMessageFor(model => model.UserName)</p>
+                    </div>
+                    <div class="form-row">
+                        <label for="password">Mật khẩu</label>
+                        <input type="password" name="Password" id="password" class="input-text" placeholder="Mật khẩu" required>
+                        <p class="text-danger" style="color:red">@Html.ValidationMessageFor(model => model.Password)</p>
+
+                    </div>
+                    <div class="form-row">
+                        <label for="password">Nhập lại mật khẩu</label>
+                        <input type="password" name="rePassword" id="password" class="input-text" placeholder="Nhập lại mật khẩu" required>
+                        <p style="color:red">@ViewData["err4"]</p>
+                    </div>
+                    <h2>THÔNG TIN CÁ NHÂN</h2>
+                    <div class="form-row">
+                        <label for="full-name">Họ tên: </label>
+                        <input type="text" name="CustomerName" id="full-name" class="input-text" placeholder="Tên của bạn" value="@ViewBag.a" required>
+                        <p style="color:red">@ViewData["err1"]</p>
+                    </div>
+                    <div class="form-row">
+                        <label for="your-email">Giới tính</label>
+                        @Html.DropDownList("sex", list, htmlAttributes: new { @name = "Sex", @class = "input-text" })
+                    </div>
+                    <div class="form-row">
+                        <label for="your-Birthday">Ngày sinh</label>
+                        <input type="date" name="Birthday" id="your-birthday"  value="@ViewBag.b"  required>
+                        <p style="color:red">@ViewData["err8"]</p>
+                    </div>
+                    <div class="form-row">
+                        <label for="your-email">Địa chỉ</label>
+                        <input maxlength="80" type="text" name="Address" id="your-address" class="input-text"  value="@ViewBag.c"  placeholder="Địa chỉ " required>
+                        <p style="color:red">@ViewData["err6"]</p>
+                    </div>
+                    <div class="form-row">
+                        <label for="your-email">Email</label>
+                        <input maxlength="80" type="email" name="Email" id="your-email" class="input-text"  value="@ViewBag.d"  placeholder="Địa chỉ " required>
+                        <p style="color:red">@ViewData["err8"]@ViewData["err9"]</p>
+                    </div>
+                    <div class="form-row">
+                        <label for="your-email">Số điện thoại</label>
+                        <input minlength="10" maxlength="10" type="text" name="Phone" id="your-email"  value="@ViewBag.e"  class="input-text" placeholder="Số điện thoại" required>
+                        <p style="color:red">@ViewData["err5"]@ViewData["err7"]</p>
+                    </div>
+                    <div class="form-row-last">
+                        <input type="submit" name="register" class="register" value="Đăng ký">
+                        <input type="reset" class="register" value="Xóa Thông Tin" />
+                        <a href="@Url.Action("user_login","User")"><input type="button" class="register" value="Quay lại đăng nhập" /></a>
+                    </div>
+                }
+            </form>
+        </div>
+    </div>
+</body>
+</html>

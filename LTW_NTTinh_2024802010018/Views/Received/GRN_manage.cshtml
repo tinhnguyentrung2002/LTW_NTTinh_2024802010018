@@ -1,0 +1,104 @@
+﻿@using LTW_NTTinh_2024802010018.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<GoodsReceivedNote>
+
+@{
+    ViewBag.Title = "Quản lý phiếu nhập";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1 style="text-align:center" class="h3 mb-0 text-gray-800">DANH SÁCH PHIẾU NHẬP</h1>
+@using (Html.BeginForm("SearchGRN", "Received", FormMethod.Get, new { @role = "search" }))
+{
+    <div class="input-group" style="width: 600px; margin: 10px; margin-right: 1000px; font-size: large;">
+        <input name="strSearch" style="padding: 8px; font-size: large;width:200px" class="form-control" type="text" placeholder="Tìm kiếm..." aria-label="Tìm kiếm..." aria-describedby="btnNavbarSearch" />
+        <button style="font-size: large; margin-right: 5px;" class="btn btn-primary" id="btnNavbarSearch" type="submit"><i class="fas fa-search"></i></button>
+        <a data-toggle="modal" data-target="#addModal" class="btn btn-success" role="button" style="font-size:large;margin-left:5px;"><ion-icon name="add-outline" style="font-size:large;color:white"></ion-icon> Thêm mới</a>
+    </div>
+}
+<table id="myTable" class="table table-striped table-bordered" style="width:100%; font-size:large;margin-bottom:5px;">
+    <thead>
+        <tr>
+            <th style="text-align:center;width:30px">
+                STT
+            </th>
+            <th style="text-align: center; width: 120px">
+                Mã phiếu nhập
+            </th>
+            <th style="text-align: center; width: 120px">
+                Tên phiếu nhập
+            </th>
+            <th style="text-align: center; width: 180px">
+                Tên sản phẩm
+            </th>
+            <th style="text-align: center; width: 180px">
+                Tên nhà cung cấp
+            </th>
+            <th style="text-align: center; width: 180px">
+                Số lượng
+            </th>
+            <th style="text-align: center; width: 180px">
+                Tổng tiền
+            </th>
+            <th style="text-align: center; width: 130px">
+                Trạng thái
+            </th>
+            <th style="text-align: center; width: 130px">
+                Thao tác
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.STT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GRNID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GRNName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProviderName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.FormatValue(item.Amount, "{0:#,##0}") VNĐ
+                </td>
+                @if (item.Status == true)
+                {
+                    <td>
+                        <label class="btn btn-success">Đã thanh toán</label>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <label class="btn btn-danger">Đã hủy</label>
+                    </td>
+                }
+                <td>
+                    <a data-toggle="modal" data-target="#del-@item.GRNID" class="btn btn-primary" role="button" style="font-size:large">Xóa</a>
+                    @Html.Action("Delete", new { id = item.GRNID })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div><span>Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount</span></div>
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("GRN_manage", new
+{
+    page = page
+}))
+
+</div>
+@Html.Action("Create")

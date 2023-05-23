@@ -1,0 +1,23 @@
+﻿@model LTW_NTTinh_2024802010018.Models.Employee
+<div class="modal fade" id="del-@Model.EmployeeID" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div style="min-width:1000px;" class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 style="text-align:center" class="modal-title" id="exampleModalLabel">Xóa nhân viên</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            @using (Html.BeginForm("Delete"))
+            {
+                <div class="modal-body">
+                  Chọn "Xóa" nếu muốn xóa nhân viên mã số #@Html.DisplayFor(model => model.EmployeeID)
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
+                    <input id="popup" type="submit" value="Xóa" style="font-size:large" class="btn btn-success" />
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.625, 15.25" name="dbMinimart">
+  <DataContextMoniker Name="/dbMinimartDataContext" />
+  <nestedChildShapes>
+    <classShape Id="f02c435a-797a-4325-b304-1edbbf8e2942" absoluteBounds="4.375, 11, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/dbMinimartDataContext/Category" />
+      <nestedChildShapes>
+        <elementListCompartment Id="324fdd73-c9e9-4390-a1e2-78c602e9b6c3" absoluteBounds="4.3900000000000006, 11.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c31e06f0-019d-4b18-b07a-1877b31bdaba" absoluteBounds="1.375, 9.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/dbMinimartDataContext/Coupon" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2e4cc59f-b0da-4a20-8559-6226bf598d9f" absoluteBounds="1.3900000000000001, 10.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9fa15d6c-32de-4406-bb41-13109d00cad9" absoluteBounds="4.125, 7, 2, 1.1939925130208326">
+      <DataClassMoniker Name="/dbMinimartDataContext/CouponCheck" />
+      <nestedChildShapes>
+        <elementListCompartment Id="13f4bf46-8a5a-4ae5-bcf4-c7777e7a8470" absoluteBounds="4.1400000000000006, 7.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f1d77f72-bd8d-4976-aa6a-49b2e7032d36" absoluteBounds="1.375, 6.25, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/dbMinimartDataContext/Customer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c2fdc54e-4c7c-47ee-8e32-7feec2e35f72" absoluteBounds="1.3900000000000001, 6.71, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a2e9b44c-a940-48b4-bead-c1421299dadb" absoluteBounds="1.375, 2.25, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/dbMinimartDataContext/Employee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="355e2f4e-dba2-4b3d-b6a6-3001f53ff959" absoluteBounds="1.3900000000000001, 2.71, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f88b60f6-5e5d-4cfa-af96-20cbf46a8799" absoluteBounds="10.375, 3, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/dbMinimartDataContext/New" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a8cabfbe-63a4-4190-a726-15e43675be5f" absoluteBounds="10.39, 3.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6905285a-af00-4e5b-ac1e-75cad8645de1" absoluteBounds="7.125, 5.75, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/dbMinimartDataContext/Order" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e4430b46-0ed2-404c-b930-5fff3666424b" absoluteBounds="7.14, 6.21, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a2a6ff6d-20c1-47af-8bc6-874588ebc8cc" absoluteBounds="9.875, 6.5, 2, 2.1554996744791675">
+      <DataClassMoniker Name="/dbMinimartDataContext/OrderDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6cc34e45-a67b-4d2d-a54e-b267aed2761b" absoluteBounds="9.89, 6.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e37e2af9-e46b-44be-9d36-f08b3b2ef744" absoluteBounds="4.625, 9.125, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/dbMinimartDataContext/Payment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="be414e05-80be-4d42-8ad8-d7e3293ff096" absoluteBounds="4.6400000000000006, 9.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e82042cf-8cb8-4522-851b-c343c810aa5b" absoluteBounds="7.125, 1, 2, 3.1170068359375005">
+      <DataClassMoniker Name="/dbMinimartDataContext/Product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5f86e563-b303-4159-a272-35903710452f" absoluteBounds="7.14, 1.46, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5d02e51d-42c7-46d0-b854-e54a1c5f21a3" absoluteBounds="10.375, 10, 2, 1.7708968098958326">
+      <DataClassMoniker Name="/dbMinimartDataContext/Provider" />
+      <nestedChildShapes>
+        <elementListCompartment Id="834440d2-ce42-44d0-952f-ee3c9e3db70d" absoluteBounds="10.39, 10.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1b2c6641-55fb-46c9-988d-a33ccf98d53e" absoluteBounds="10.375, 13, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/dbMinimartDataContext/Response" />
+      <nestedChildShapes>
+        <elementListCompartment Id="de7c509e-c518-4037-a8e6-a646e422153a" absoluteBounds="10.39, 13.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c1cd77b3-d328-4e65-9618-2b6b9a276698" absoluteBounds="4.125, 3.625, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/dbMinimartDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e0d4d65c-0d4d-438a-8343-ec7c89395196" absoluteBounds="4.1400000000000006, 4.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.375 : 9.75121330413662); (3.75 : 9.37621330413662); (3.75 : 7.59699625651042); (4.125 : 7.59699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/dbMinimartDataContext/Coupon/Coupon_CouponCheck" />
+      <nodes>
+        <classShapeMoniker Id="c31e06f0-019d-4b18-b07a-1877b31bdaba" />
+        <classShapeMoniker Id="9fa15d6c-32de-4406-bb41-13109d00cad9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.375 : 7.59699625651042); (4.125 : 7.59699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/dbMinimartDataContext/Customer/Customer_CouponCheck" />
+      <nodes>
+        <classShapeMoniker Id="f1d77f72-bd8d-4976-aa6a-49b2e7032d36" />
+        <classShapeMoniker Id="9fa15d6c-32de-4406-bb41-13109d00cad9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.375 : 6.59375); (7.125 : 6.59375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/dbMinimartDataContext/Customer/Customer_Order" />
+      <nodes>
+        <classShapeMoniker Id="f1d77f72-bd8d-4976-aa6a-49b2e7032d36" />
+        <classShapeMoniker Id="6905285a-af00-4e5b-ac1e-75cad8645de1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.125 : 7.57774983723958); (9.875 : 7.57774983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/dbMinimartDataContext/Order/Order_OrderDetail" />
+      <nodes>
+        <classShapeMoniker Id="6905285a-af00-4e5b-ac1e-75cad8645de1" />
+        <classShapeMoniker Id="a2a6ff6d-20c1-47af-8bc6-874588ebc8cc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.625 : 9.72199625651042); (8.125 : 9.72199625651042); (8.125 : 9.25160970052083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/dbMinimartDataContext/Payment/Payment_Order" />
+      <nodes>
+        <classShapeMoniker Id="e37e2af9-e46b-44be-9d36-f08b3b2ef744" />
+        <classShapeMoniker Id="6905285a-af00-4e5b-ac1e-75cad8645de1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.125 : 1.96875); (10.09375 : 1.96875); (10.09375 : 6.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/dbMinimartDataContext/Product/Product_OrderDetail" />
+      <nodes>
+        <classShapeMoniker Id="e82042cf-8cb8-4522-851b-c343c810aa5b" />
+        <classShapeMoniker Id="a2a6ff6d-20c1-47af-8bc6-874588ebc8cc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.375 : 6.25153746153846); (3.75 : 5.87653746153846); (3.75 : 4.60659912109375); (4.125 : 4.60659912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/dbMinimartDataContext/Customer/Customer_User" />
+      <nodes>
+        <classShapeMoniker Id="f1d77f72-bd8d-4976-aa6a-49b2e7032d36" />
+        <classShapeMoniker Id="c1cd77b3-d328-4e65-9618-2b6b9a276698" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.375 : 4.05329956054688); (4.125 : 4.05329956054688)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/dbMinimartDataContext/Employee/Employee_User" />
+      <nodes>
+        <classShapeMoniker Id="a2e9b44c-a940-48b4-bead-c1421299dadb" />
+        <classShapeMoniker Id="c1cd77b3-d328-4e65-9618-2b6b9a276698" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="90139067-db69-4319-90c8-0d19082674e9" absoluteBounds="7.25, 11.5, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/dbMinimartDataContext/GoodsReceivedNote" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6fe9dcb3-41df-4f6e-80cb-67c20c767abe" absoluteBounds="7.265, 11.96, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

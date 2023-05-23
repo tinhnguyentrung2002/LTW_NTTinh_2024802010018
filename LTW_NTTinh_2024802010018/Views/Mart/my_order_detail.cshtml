@@ -1,0 +1,92 @@
+﻿@model IEnumerable<LTW_NTTinh_2024802010018.Models.OrderDetail>
+
+@{
+    ViewBag.Title = "Chi tiết hóa đơn";
+    Layout = "~/Views/Shared/_LayoutMart.cshtml";
+}
+<style>
+    .abc {
+        background-color: #1266f1;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .card {
+        border: none
+    }
+
+    .logo {
+        background-color: #eeeeeea8
+    }
+
+    .totals tr td {
+        font-size: 13px
+    }
+
+    .footer {
+        background-color: #eeeeeea8
+    }
+
+        .footer span {
+            font-size: 12px
+        }
+
+    .product-qty span {
+        font-size: 12px;
+        color: #dedbdb
+    }
+</style>
+<div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">ĐƠN HÀNG CỦA TÔI</h1>
+        <div class="d-inline-flex">
+            <p class="m-0"><a href="@Url.Action("Index","Mart")">Trang chủ</a></p>
+            <p class="m-0 px-2">-</p>
+            <p class="m-0">Đơn hàng của tôi</p>
+        </div>
+    </div>
+</div>
+<div class="text-center mb-4">
+    <h2 class="section-title px-5"><span class="px-2">Chi tiết hóa đơn</span></h2>
+</div>
+<div class="container mt-5 mb-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="text-left logo p-2 px-5">
+                    <img src="~/Images/logo.png" width="50">
+                </div>
+                <div class="invoice p-5">
+                    <h5>Đơn hàng</h5>
+                    <div class="product border-bottom table-responsive">
+                        <table class="table table-borderless">
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td width="70%">
+                                            <span style="color:gray" class="font-weight-bold">@item.ProductName</span>
+                                            <div class="product-qty">
+                                                <span class="d-block">SL: @item.Quantity</span>
+                                            </div>
+                                        </td>
+                                        <td width="30%">
+                                            <div class="text-right">
+                                                <span class="font-weight-bold">@Html.FormatValue(item.Amount, "{0:#,##0}") VNĐ</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <span>Minimart</span>
+                </div>
+                <div class="d-flex justify-content-between footer p-3">
+                    <span style="margin:0 auto;">
+                        <a href="@Url.Action("my_order", "Mart", new {id = Session["CustomerID"].ToString(),id1 = 1})" class="btn btn-primary" role="button" style="font-size: large">Quay lại</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

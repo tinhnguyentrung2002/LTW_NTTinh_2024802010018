@@ -1,0 +1,44 @@
+﻿@model LTW_NTTinh_2024802010018.Models.GoodsReceivedNote
+
+<div class="modal fade" id="detail-@Model.GRNID" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div style="min-width:1000px;" class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 style="text-align:center" class="modal-title" id="exampleModalLabel">CHI TIẾT PHIẾU NHẬP</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container mt-5 mb-5">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="text-left logo p-2 px-5">
+                                    <img src="~/Images/logo.png" width="50">
+                                </div>
+                                <div class="invoice p-5">
+                                    <h5>Phiếu nhập</h5>
+                                    <div class="product border-bottom table-responsive">
+                                        <table class="table table-borderless">
+                                            <tbody>
+                                                @Html.Action("product_received", new { id = Model.GRNID })
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <span>Nhà cung cấp: @Model.ProductName</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <label>Ngày lập phiếu: @Model.Date</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

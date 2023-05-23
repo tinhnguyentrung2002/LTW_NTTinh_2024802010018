@@ -1,0 +1,141 @@
+﻿@using LTW_NTTinh_2024802010018.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Order>
+
+
+@{
+    ViewBag.Title = "Đơn hàng của tôi";
+    Layout = "~/Views/Shared/_LayoutMart.cshtml";
+}
+<div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">ĐƠN HÀNG CỦA TÔI</h1>
+        <div class="d-inline-flex">
+            <p class="m-0"><a href="@Url.Action("Index","Mart")">Trang chủ</a></p>
+            <p class="m-0 px-2">-</p>
+            <p class="m-0">Đơn hàng của tôi</p>
+        </div>
+    </div>
+</div>
+<div class="text-center mb-4">
+    <h2 class="section-title px-5"><span class="px-2">Danh sách hóa đơn</span></h2>
+</div>
+@if (ViewBag.cnt1 > 0)
+{
+    using (Html.BeginForm("SearchOrder", "Mart", FormMethod.Get, new { @role = "search", style = "margin-left:20px" }))
+    {
+        <div class="input-group" style=" width:412px;margin: 10px; font-size: large;">
+            <input name="strId" style="padding: 20px; font-size: large;width:200px" class="form-control" type="text" placeholder="Tìm kiếm..." aria-label="Tìm kiếm..." aria-describedby="btnNavbarSearch" />
+            <button style=" margin-right: 5px;" class="btn btn-primary" id="btnNavbarSearch" type="submit"><i class="fas fa-search"></i></button>
+            <a class="btn btn-primary" href="@Url.Action("my_order", new {id = Session["CustomerID"].ToString(),id1= 3})">Quay lại</a>
+        </div>
+    }
+    <table id="myTable" class="table table-striped table-bordered" style="width:100%; font-size:large;margin-bottom:5px;">
+        <thead>
+            <tr>
+                <th style="text-align: center; width: 90px">
+                    Mã hóa đơn
+                </th>
+                <th style="text-align: center; width: 90px">
+                    Tổng tiền
+                </th>
+                <th style="text-align: center; width: 100px">
+                    Ngày đặt
+                </th>
+                <th style="text-align: center; width: 150px">
+                    Địa chỉ
+                </th>
+                <th style="text-align: center; width: 30px">
+                    Trạng thái thanh toán
+                </th>
+                <th style="text-align: center; width: 30px">
+                    Trạng thái vận chuyển
+                </th>
+                <th style="text-align: center; width: 130px">
+                    Phương thức thanh toán
+                </th>
+                <th style="text-align: center; width: 50px">
+                    Thuế(VAT)
+                </th>
+                <th style="text-align: center; width: 70px">Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="text-align: center;">
+                        @Html.DisplayFor(modelItem => item.OrderID)
+                    </td>
+                    <td style="text-align: center;">
+                        @Html.FormatValue(item.Amount, "{0:#,##0}") VNĐ
+                    </td>
+                    <td style="text-align: center;">
+                        @Html.DisplayFor(modelItem => item.InvoiceDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    @if (item.PayStatus == true)
+                    {
+                        <td style="text-align: center;">
+                            <label class="btn btn-success" for="btn-check">Đã thanh toán</label>
+                        </td>
+                    }
+                    else
+                    {
+                        <td style="text-align: center;">
+                            <label class="btn btn-danger" for="btn-check">Hủy đơn</label>
+                        </td>
+                    }
+                    @if (item.DeliveryStatus == true)
+                    {
+                        <td style="text-align: center;">
+
+                            <label class="btn btn-success" for="btn-check">Đã giao</label>
+                        </td>
+                    }
+                    else
+                    {
+                        <td style="text-align: center;">
+
+                            <label class="btn btn-warning" for="btn-check">Đang xử lí</label>
+                        </td>
+                    }
+                    @if ((item.PaymentID) == "pay02")
+                    {
+                        <td style="text-align: center;">
+                            <p>Thanh toán trực tiếp</p>
+                        </td>
+                    }
+                    else if ((item.PaymentID) == "pay01")
+                    {
+                        <td style="text-align: center;">
+                            <p>Thanh toán MOMO</p>
+                        </td>
+                    }
+                    else
+                    {
+                        <td style="text-align: center;">
+                            <p>Thanh toán VNPAY</p>
+                        </td>
+                    }
+                    <td style="text-align: center;">
+                        @Html.DisplayFor(modelItem => item.Tax)%
+                    </td>
+                    <td style="text-align: center;">
+                        <a href="@Url.Action("my_order_detail", new { id = item.OrderID })" class="btn btn-primary" role="button" style="font-size:large">Xem chi tiết</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<div><span>Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount</span></div>
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("SearchOrder", new
+{
+   strId = ViewBag.strId,
+   page = page
+}))
+</div>

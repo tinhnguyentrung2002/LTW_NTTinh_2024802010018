@@ -1,0 +1,18 @@
+﻿@model IEnumerable<LTW_NTTinh_2024802010018.Models.Order>
+
+@foreach (var item in Model)
+{
+    <a data-toggle="modal" data-target="#detail-@item.OrderID" class="dropdown-item d-flex align-items-center" href="#" )">
+        <div class="mr-3">
+            <div class="icon-circle bg-success">
+                <i class="fa-solid fa-clipboard-check"></i>
+            </div>
+        </div>
+        <div>
+            <div class="small text-gray-500">Thời gian @item.InvoiceDate</div>
+            <span class="font-weight"> Mã hóa đơn: @item.OrderID - Số tiền: @Html.FormatValue(@item.Amount, "{0:#,##0}") VNĐ - Đã thanh toán</span>
+
+        </div>
+    </a>
+    @Html.Action("order_detail_manage", "Order", new { id = item.OrderID })
+}

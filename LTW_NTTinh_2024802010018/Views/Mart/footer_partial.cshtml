@@ -1,0 +1,52 @@
+﻿<div  class="container-fluid bg-secondary text-dark mt-5 pt-5">
+    <div class="row px-xl-5 pt-5">
+        <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
+            <a href="" class="text-decoration-none">
+                <h1 class="mb-4 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border border-white px-3 mr-1">M</span>Mart</h1>
+            </a>
+            <p>Minimart - Mua sắm cho gia đình - Bạn của mọi nhà - Nơi mua sắm tin cậy - Hướng tới giới trẻ.</p>
+            <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>123 Thủ Khoa Huân, Thuận An, Bình Dương</p>
+            <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>minimart@gmail.com</p>
+            <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+84 123 456789</p>
+            <img style="width:100px;height:100px" src="~/Images/logo.png" />
+        </div>
+        <div class="col-lg-8 col-md-12">
+            <div class="row">
+                <div class="col-md-4 mb-5">
+                    <h5 class="font-weight-bold text-dark mb-4">Liên kết nhanh</h5>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-dark mb-2" href="@Url.Action("Index","Mart")"><i class="fa fa-angle-right mr-2"></i>Trang chủ</a>
+                        <a class="text-dark mb-2" href="@Url.Action("mart_product", "Mart", new {id = 1})"><i class="fa fa-angle-right mr-2"></i>Sản phẩm</a>
+                        <a class="text-dark mb-2" href="@Url.Action("shopping_cart", "ShoppingCart")"><i class="fa fa-angle-right mr-2"></i>Giỏ hàng</a>
+                        <a class="text-dark mb-2" href="@Url.Action("news_mart","Mart")"><i class="fa fa-angle-right mr-2"></i>Tin tức</a>
+                        <a class="text-dark" href="@Url.Action("contact","Mart")"><i class="fa fa-angle-right mr-2"></i>Liên hệ</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <h5 class="font-weight-bold text-dark mb-4">Chính sách người dùng</h5>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-dark mb-2" href="@Url.Action("mart_checkout","Mart")"><i class="fa fa-angle-right mr-2"></i>Chính sách thanh toán </a>
+                        <a class="text-dark mb-2" href="@Url.Action("mart_delivery","Mart")"><i class="fa fa-angle-right mr-2"></i>Chính sách vận chuyển</a>
+                        <a class="text-dark mb-2" href="@Url.Action("mart_warranty","Mart")"><i class="fa fa-angle-right mr-2"></i>Chính sách bảo hành</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <h5 class="font-weight-bold text-dark mb-4">Kết nối với chúng tôi</h5>
+                    <form action="">
+                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fwww.minimart.com.vn%2F&tabs=timeline&width=340&height=120&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="130" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>                    </form>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.997414277664!2d106.71712571531688!3d10.963567158708194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d0ab3ed2d5e5%3A0x4403a2399b667470!2sMini%20Mart!5e0!3m2!1svi!2s!4v1667721499810!5m2!1svi!2s" width="340" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row border-top border-light mx-xl-5 py-4">
+        <div class="col-md-6 px-xl-0">
+            <p class="mb-md-0 text-md-left text-dark">
+                &copy; <a class="text-dark font-weight-semi-bold" href="#">Minimart - Trung Tinh Nguyen</a>. All Rights Reserved. Designed
+                by
+                <a class="text-dark font-weight-semi-bold" href="@Url.Action("Index","Mart")">MiniMart</a>
+            </p>
+        </div>
+    </div>
+</div>
+<a href="#" style="position:fixed" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>

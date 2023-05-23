@@ -1,0 +1,210 @@
+﻿@using LTW_NTTinh_2024802010018.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Product>
+
+@{
+    ViewBag.Title = "Quản lý sản phẩm";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h1 style="text-align:center" class="h3 mb-0 text-gray-800">DANH SÁCH SẢN PHẨM</h1>
+@using (Html.BeginForm("SearchProducts", "Product", FormMethod.Get, new { @role = "search" }))
+{
+    <div class="input-group" style="width: 600px; margin: 10px; margin-right: 1000px; font-size: large;">
+        <input name="strSearch" style="padding: 8px; font-size: large;width:200px" class="form-control" type="text" placeholder="Tìm kiếm..." aria-label="Tìm kiếm..." aria-describedby="btnNavbarSearch" />
+        <button style="font-size: large; margin-right: 5px;" class="btn btn-primary" id="btnNavbarSearch" type="submit"><i class="fas fa-search"></i></button>
+        <a data-toggle="modal" data-target="#addModal" class="btn btn-success" role="button" style="font-size:large;margin-left:5px;"><ion-icon name="add-outline" style="font-size:large;color:white"></ion-icon> Thêm mới</a>
+        <div class="dropdown ml-4">
+            <button class="btn border dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Lọc danh mục
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
+                <a class="dropdown-item" href="@Url.Action("product_manage", "Product")">Tất cả</a>
+                @foreach (var item in ViewBag.category)
+                {
+                    <a class="dropdown-item" href="@Url.Action("filter", "Product", new { id = item.CategoryID })">@item.CategoryName</a>
+                }
+            </div>
+        </div>
+    </div>
+}
+@if (ViewBag.count != 0)
+{
+    <table id="myTable" class="table table-striped table-bordered" style="width:100%; font-size:large;margin-bottom:5px;">
+        <thead>
+            <tr>
+                <th style="text-align:center;width:30px">
+                    STT
+                </th>
+                <th style="text-align: center; width: 120px">
+                    Mã sản phẩm
+                </th>
+                <th style="text-align: center; width: 120px">
+                    Tên sản phẩm
+                </th>
+                <th style="text-align: center; width: 160px">
+                    Ảnh
+                </th>
+                <th style="text-align: center; width: 180px">
+                    Mô tả
+                </th>
+                <th style="text-align: center; width: 180px">
+                    Đơn vị
+                </th>
+                <th style="text-align: center; width: 180px">
+                    Giá
+                </th>
+                <th style="text-align: center; width: 180px">
+                    Nhà cung cấp
+                </th>
+                <th style="text-align: center; width: 180px">
+                    Số lượng
+                </th>
+                <th style="text-align: center; width: 180px">
+                    Danh mục
+                </th>
+                <th style="text-align: center; width: 180px">
+                    Khuyến mãi
+                </th>
+                <th style="text-align: center; width: 180px">
+                    Ngày cập nhật
+                </th>
+                <th style="text-align: center; width: 130px">
+                    Thao tác
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.STT)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+                    <td style="text-align: center">
+                        <img style="border:1px solid;width:120px; height:90px " src="~/Images/@item.Picture">
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Unit)
+                    </td>
+                    <td>
+                        @Html.FormatValue(item.Price, "{0:#,##0}") VNĐ
+                    </td>
+                    @foreach (var item1 in ViewBag.provider)
+                    {
+                        if (item.ProviderID == item1.ProviderID)
+                        {
+                            <td>
+                                <p>@item1.ProviderName</p>
+                            </td>
+                        }
+                    }
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    @foreach (var item2 in ViewBag.category)
+                    {
+                        if (item.CategoryID == item2.CategoryID)
+                        {
+                            <td>
+                                <p>@item2.CategoryID</p>
+                            </td>
+                        }
+                    }
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sale)%
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Updated)
+                    </td>
+                    <td>
+                        <a data-toggle="modal" data-target="#edit-@item.ProductID" class="btn btn-primary" role="button" style="font-size:large">Chỉnh sửa</a>
+                        <a data-toggle="modal" data-target="#del-@item.ProductID" class="btn btn-primary" role="button" style="font-size:large">Xóa</a>
+                        @Html.Action("Create")
+                        @Html.Action("Edit", new { id = item.ProductID })
+                        @Html.Action("Delete", new { id = item.ProductID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <table id="myTable" class="table table-striped table-bordered" style="width:100%; font-size:large;margin-bottom:5px;">
+        <thead>
+            <tr>
+                <th style="text-align:center;width:30px">
+                    STT
+                </th>
+                <th style="text-align: center; width: 120px">
+                    Mã sản phẩm
+                </th>
+                <th style="text-align: center; width: 120px">
+                    Tên sản phẩm
+                </th>
+                <th style="text-align: center; width: 160px">
+                    Ảnh
+                </th>
+                <th style="text-align: center; width: 180px">
+                    Mô tả
+                </th>
+                <th style="text-align: center; width: 180px">
+                    Đơn vị
+                </th>
+                <th style="text-align: center; width: 180px">
+                    Giá
+                </th>
+                <th style="text-align: center; width: 180px">
+                    Nhà cung cấp
+                </th>
+                <th style="text-align: center; width: 180px">
+                    Số lượng
+                </th>
+                <th style="text-align: center; width: 180px">
+                    Danh mục
+                </th>
+                <th style="text-align: center; width: 180px">
+                    Khuyến mãi
+                </th>
+                <th style="text-align: center; width: 180px">
+                    Ngày cập nhật
+                </th>
+                <th style="text-align: center; width: 130px">
+                    Thao tác
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td colspan="13">
+                        <h2 style=" text-align:center;font-weight:bold">Không tồn tại</h2>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<div><span>Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount</span></div>
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("filter", new
+{
+
+    id = ViewBag.id,
+    page = page
+}))
+
+</div>
+

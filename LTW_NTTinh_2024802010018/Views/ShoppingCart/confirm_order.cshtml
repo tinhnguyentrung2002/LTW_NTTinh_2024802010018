@@ -1,0 +1,68 @@
+﻿@using LTW_NTTinh_2024802010018.Models
+@model List<shopping_cart>
+@{
+    ViewBag.Title = "Đơn đặt hàng";
+    Layout = "~/Views/Shared/_LayoutMart.cshtml";
+}
+<style>
+    .abc {
+        background-color: #1266f1;
+        font-family: 'Montserrat', sans-serif;
+        
+    }
+
+    .card {
+        border: none
+    }
+
+    .logo {
+        background-color: #eeeeeea8
+    }
+
+    .totals tr td {
+        font-size: 13px
+    }
+
+    .footer {
+        background-color: #eeeeeea8
+    }
+
+        .footer span {
+            font-size: 12px
+        }
+
+    .product-qty span {
+        font-size: 12px;
+        color: #dedbdb
+    }
+</style>
+<div class="abc">
+    <div  class="container mt-5 mb-5">
+        <div class="row d-flex justify-content-center">
+            <div style="margin: 10px;" class="col-md-8">
+                <div class="card">
+                    <div class="text-left logo p-2 px-5">
+                        <img src="~/Images/logo.png" width="50">
+                    </div>
+                    <div class="invoice p-5">
+                        <h5>Đặt hàng thành công</h5>
+                        <hr />
+                        <span class="font-weight-bold d-block mt-4">Xin chào, @ViewBag.name</span>
+                        <span>Bạn đã đặt hàng thành công! Nhân viên chúng tôi sẽ liên hệ lại bạn trong vòng 30 phút để xác nhận đơn hàng!</span>
+                        <p>Cảm ơn bạn đã tin tưởng và đặt hàng tại Minimart!</p>
+                        <hr />
+                        <p class="font-weight-bold mb-0">Chúc bạn một ngày vui vẻ!</p>
+                        <span>Minimart</span>
+                    </div>
+                    <div class="d-flex justify-content-between footer p-3">
+
+                        <span>Website chính thức:<a href="@Url.Action("Index","Mart")">tại đây</a></span>
+                        <span>@DateTime.Now.Date.ToShortDateString()</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

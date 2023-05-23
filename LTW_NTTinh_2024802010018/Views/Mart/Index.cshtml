@@ -1,0 +1,269 @@
+﻿@using LTW_NTTinh_2024802010018.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Product>
+@{
+    ViewBag.Title = "Minimart - Cửa hàng tiện lợi";
+    Layout = "~/Views/Shared/_LayoutMart.cshtml";
+}
+
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5 pb-3">
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center border mb-4" style="padding: 20px; background-color: aliceblue;border-radius:5px">
+                <h1 style="padding: 20px;" class="fa fa-check text-primary m-0 mr-3"></h1>
+                <h5 class="font-weight-semi-bold m-0">Chất lượng</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center border mb-4" style="padding: 20px; background-color: aliceblue;border-radius:5px">
+                <h1 style="padding: 20px;" class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
+                <h5 class="font-weight-semi-bold m-0">Miễn phí giao hàng</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center border mb-4" style="padding: 20px; background-color: aliceblue;border-radius:5px">
+                <h1 style="padding: 20px;" class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
+                <h5 class="font-weight-semi-bold m-0">Hoàn trả trong 7 ngày</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center border mb-4" style="padding: 20px; background-color: aliceblue;border-radius:5px">
+                <h1 style="padding: 20px;" class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
+                <h5 class="font-weight-semi-bold m-0">Hỗ trợ 24/7</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Featured End -->
+<!-- Categories Start -->
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5 pb-3">
+        <div class="col-lg-4 col-md-6 pb-1">
+            <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                <p class="text-right">@ViewBag.quantity Sản phẩm</p>
+                <a href="@Url.Action("category_product", "Mart", new {id = "C2",i = 1})" class="cat-img position-relative overflow-hidden mb-3">
+                    <img style="width:550px;height:320px" class="img-fluid" src="~/Images/vegetables.jpg" alt="">
+                </a>
+                <h5 class="font-weight-semi-bold m-0">Rau củ</h5>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 pb-1">
+            <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                <p class="text-right">@ViewBag.quantity1 Sản phẩm</p>
+                <a href="@Url.Action("category_product", "Mart", new {id = "C8",i = 1})" class="cat-img position-relative overflow-hidden mb-3">
+                    <img style="width:550px;height:320px" class="img-fluid" src="~/Images/dogiadung.jpg" alt="">
+                </a>
+                <h5 class="font-weight-semi-bold m-0">Đồ gia dụng</h5>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 pb-1">
+            <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                <p class="text-right">@ViewBag.quantity2 Sản phẩm</p>
+                <a href="@Url.Action("category_product", "Mart", new {id = "C7",i = 1})" class="cat-img position-relative overflow-hidden mb-3">
+                    <img style="width:550px;height:320px" class="img-fluid" src="~/Images/pepsi.png" alt="">
+                </a>
+                <h5 class="font-weight-semi-bold m-0">Đồ uống</h5>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 pb-1">
+            <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                <p class="text-right">@ViewBag.quantity3 Sản phẩm</p>
+                <a href="@Url.Action("category_product", "Mart", new {id = "C1",i = 1})" class="cat-img position-relative overflow-hidden mb-3">
+                    <img style="width:550px;height:320px" class="img-fluid" src="~/Images/kfc-2.png" alt="">
+                </a>
+                <h5 class="font-weight-semi-bold m-0">Thức ăn nhanh</h5>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 pb-1">
+            <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                <p class="text-right">@ViewBag.quantity4 Sản phẩm</p>
+                <a href="@Url.Action("category_product", "Mart", new {id = "C9",i = 1})" class="cat-img position-relative overflow-hidden mb-3">
+                    <img style="width:550px;height:320px" class="img-fluid" src="~/Images/mypham.jpg" alt="">
+                </a>
+                <h5 class="font-weight-semi-bold m-0">Mỹ phẩm</h5>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 pb-1">
+            <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                <p class="text-right">@ViewBag.quantity5 Sản phẩm</p>
+                <a href="@Url.Action("category_product", "Mart", new {id = "C11",i = 1})" class="cat-img position-relative overflow-hidden mb-3">
+                    <img style="width:550px;height:320px" class="img-fluid" src="~/Images/comboquatang.jpg" alt="">
+                </a>
+                <h5 class="font-weight-semi-bold m-0">Đồ dùng cho bé</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Categories End -->
+<!-- Offer Start -->
+<div class="container-fluid offer pt-5">
+    <div class="row px-xl-5">
+        <div class="col-md-6 pb-4">
+            <div class="position-relative bg-secondary text-center text-md-right text-white mb-2 py-5 px-5">
+                <img style="width:230px; height:230px" src="~/Images/sale.jpg" alt="">
+                <div class="position-relative" style="z-index: 1;">
+                    <h5 class="text-uppercase text-primary mb-3">Giảm 10% cho tất cả đơn hàng</h5>
+                    <h1 class="mb-4 font-weight-semi-bold">Mua sắm cuối tuần</h1>
+                    <a href="@Url.Action("mart_product", "Mart", new {id = 1})" class="btn btn-outline-primary py-md-2 px-md-3">Mua ngay</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 pb-4">
+            <div class="position-relative bg-secondary text-center text-md-left text-white mb-2 py-5 px-5">
+                <img style="width:230px; height:230px" src="~/Images/gift.jpg" alt="">
+                <div class="position-relative" style="z-index: 1;">
+                    <h5 class="text-uppercase text-primary mb-3">Hàng ngàn quà tặng khuyến mãi</h5>
+                    <h1 class="mb-4 font-weight-semi-bold">Quà tặng bao la</h1>
+                    <a href="@Url.Action("mart_product", "Mart", new {id = 1})" class="btn btn-outline-primary py-md-2 px-md-3">Mua ngay</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Offer End -->
+<!-- Products Start -->
+<div class="container-fluid pt-5">
+    <div class="text-center mb-4">
+        <h2 class="section-title px-5"><span class="px-2">Sản phẩm mới</span></h2>
+    </div>
+    <div class="row px-xl-5 pb-3">
+        @foreach (var item in Model)
+        {
+            if (item.Sale == 0 && item.Quantity > 0)
+            {
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="card product-item border-0 mb-4">
+                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                            <img style="height: 280px;" class="img-fluid w-100" src="~/Images/@item.Picture" alt="">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                            <h6 style="font-weight:bold; text-align:center" class="text-truncate mb-3">@item.ProductName</h6>
+                            <div class="d-flex justify-content-center">
+                                <h6>@Html.FormatValue(@item.Price, "{0:#,##0}") VNĐ</h6>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between bg-light border">
+                            <a href="@Url.Action("product_detail","Mart", new {id = item.ProductID})" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Chi tiết</a>
+                            <a href="@Url.Action("add_shopping_cart", "ShoppingCart", new { pId = item.ProductID, url = Request.Url.ToString()})" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            }
+            else if (item.Sale != 0 && item.Quantity > 0)
+            {
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="card product-item border-0 mb-4">
+                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                            <label style="font-weight:bold;z-index:1;right:0;top:0;position:absolute;color:white;border:solid 1px;border-style:none;background-color:red">- @item.Sale%</label>
+                            <img style="height: 280px;" class="img-fluid w-100" src="~/Images/@item.Picture" alt="">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                            <h6 style="font-weight: bold; text-align: center" class="text-truncate mb-3">@item.ProductName</h6>
+                            <div class="d-flex justify-content-center">
+                                <h6>@Html.FormatValue(@item.Price, "{0:#,##0}") VNĐ</h6><h6 class="text-muted ml-2"><del>@Html.FormatValue(((item.Price / (100 - item.Sale)) * 100), "{0:#,##0}") VNĐ</del></h6>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between bg-light border">
+                            <a href="@Url.Action("product_detail","Mart", new {id = item.ProductID})" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Chi tiết</a>
+                            <a href="@Url.Action("add_shopping_cart", "ShoppingCart", new { pId = item.ProductID, url = Request.Url.ToString()})" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            }
+            else if (item.Sale == 0 && item.Quantity == 0)
+            {
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="card product-item border-0 mb-4">
+                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                            <img style="height: 280px;" class="img-fluid w-100" src="~/Images/@item.Picture" alt="">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                            <h6 style="font-weight: bold; text-align: center" class="text-truncate mb-3">@item.ProductName</h6>
+                            <div class="d-flex justify-content-center">
+                                <h6>@Html.FormatValue(@item.Price, "{0:#,##0}") VNĐ</h6>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between bg-light border">
+                            <p style="margin: 0 auto; font-weight: bold; color: red">Tạm hết hàng</p>
+                        </div>
+                    </div>
+                </div>
+            }
+            else if (item.Sale != 0 && item.Quantity == 0)
+            {
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="card product-item border-0 mb-4">
+                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                            <label style="font-weight:bold;z-index:1;right:0;top:0;position:absolute;color:white;border:solid 1px;border-style:none;background-color:red">- @item.Sale%</label>
+                            <img style="height: 280px;" class="img-fluid w-100" src="~/Images/@item.Picture" alt="">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                            <h6 style="font-weight: bold; text-align: center" class="text-truncate mb-3">@item.ProductName</h6>
+                            <div class="d-flex justify-content-center">
+                                <h6>@Html.FormatValue(@item.Price, "{0:#,##0}") VNĐ</h6><h6 class="text-muted ml-2"><del>@Html.FormatValue(((item.Price / (100 - item.Sale)) * 100), "{0:#,##0}") VNĐ</del></h6>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between bg-light border">
+                            <p style="margin: 0 auto; font-weight: bold; color: red">Tạm hết hàng</p>
+                        </div>
+                    </div>
+                </div>
+            }
+            else if (item.Updated == null)
+            {
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="card product-item border-0 mb-4">
+                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                            <label style="font-weight:bold;z-index:1;right:0;top:0;position:absolute;color:white;border:solid 1px;border-style:none;background-color:red">- @item.Sale%</label>
+                            <img style="height: 280px;" class="img-fluid w-100" src="~/Images/@item.Picture" alt="">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                            <h6 style="font-weight: bold; text-align: center" class="text-truncate mb-3">@item.ProductName</h6>
+                            <div class="d-flex justify-content-center">
+                                <h6>@Html.FormatValue(@item.Price, "{0:#,##0}") VNĐ</h6><h6 class="text-muted ml-2"><del>@Html.FormatValue(((item.Price / (100 - item.Sale)) * 100), "{0:#,##0}") VNĐ</del></h6>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between bg-light border">
+                            <p style="margin:0 auto;font-weight:bold;color:red">Đang về hàng</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<div><span>Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount</span></div>
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new
+{
+    page = page
+}))
+</div>
+
+<!-- Products End -->
+<!-- Subscribe Start -->
+<div class="container-fluid bg-secondary my-5">
+    <div class="row justify-content-md-center py-5 px-xl-5">
+        <div class="col-md-6 col-12 py-5">
+            <div class="text-center mb-2 pb-2">
+                <h2 class="section-title px-5 mb-3"><span class="bg-secondary px-2">Thắc mắc</span></h2>
+                <p> Nếu có vấn đề thắc mắc hãy click vào đây.Chúng tôi sẽ gửi bạn giải đáp sớm nhất</p>
+                <a href="@Url.Action("contact","Mart")" style="color:white" class="btn btn-primary px-4" role="button">Đến liên hệ</a>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<!-- Subscribe End -->
+@section hotproduct{
+    @Html.Action("hotproduct_partial", "Mart")
+}
+@section provider{
+    @Html.Action("provider_partial", "Mart")
+}
+@section slider{
+    @Html.Action("slider_partial", "Mart")
+}
+<!-- Products Start -->

@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "read_news";
+    Layout = "~/Views/Shared/_LayoutMart.cshtml";
+}
+@{
+    string date = Model.Updated.Date.ToShortDateString();
+}
+<div class="container-fluid bg-secondary mb-5" style="background-image: url('/Images/@Model.Thumbnail')">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+        <h1 style="color:white" class="font-weight-semi-bold text-uppercase mb-3">@Model.NewsTitle</h1>
+        <div class="d-inline-flex">
+            <p style="color:white" class="m-0">Posted by @Model.NewsAuthor - @date</p>
+        </div>
+    </div>
+</div>
+<article style="text-align:justify" class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                @Model.NewsContent
+            </div>
+            
+        </div>
+    </div>
+   
+</article>
+<div style=" margin-left:900px"><a  href="@Url.Action("news_mart","Mart")" role="button" class="btn btn-primary">Quay lại</a></div>
+
+
+

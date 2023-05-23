@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+    Layout = "~/Views/Shared/_LayoutMart.cshtml";
+}
+
+<div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">CHI TIẾT SẢN PHẨM</h1>
+        <div class="d-inline-flex">
+            <p class="m-0"><a href="">Trang chủ</a></p>
+            <p class="m-0 px-2">-</p>
+            <p class="m-0">Chi tiết sản phẩm</p>
+        </div>
+    </div>
+</div>
+
+    @if (Model.Sale == 0)
+    {
+        <div class="container-fluid py-5">
+            <div class="row px-xl-5">
+                <div class="col-lg-5 pb-5">
+                    <div id="product-carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner border">
+                            <div class="carousel-item active">
+                                <img style="max-width:585px;max-height:448px" class="w-100 h-100" src="~/Images/@Model.Picture" alt="Image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 pb-5">
+                    <h3 class="font-weight-semi-bold">@Model.ProductName</h3>
+                    <div class="d-flex mb-3">
+                        <div class="text-primary mr-2">
+                            <small class="fas fa-star"></small>
+                            <small class="fas fa-star"></small>
+                            <small class="fas fa-star"></small>
+                            <small class="fas fa-star-half-alt"></small>
+                            <small class="far fa-star"></small>
+                        </div>
+                    </div>
+                    <p class="mb-4">Còn lại: @Model.Quantity</p>
+                    <h3 style="color:red" class="font-weight-semi-bold mb-4">@Html.FormatValue(@Model.Price, "{0:#,##0}") VNĐ</h3>
+                    <p class="mb-4">@Model.Description</p>
+                    <div class="d-flex align-items-center mb-4 pt-2">
+                        <a href="@Url.Action("add_shopping_cart", "ShoppingCart", new { pId = Model.ProductID, url = Request.Url.ToString()})">  <input type="button" class="btn btn-primary px-3" value="Thêm vào giỏ hàng"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="container-fluid py-5">
+            <div class="row px-xl-5">
+                <div class="col-lg-5 pb-5">
+                    <div id="product-carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner border">
+                            <div class="carousel-item active">
+                                <img class="w-100 h-100" src="~/Images/@Model.Picture" alt="Image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 pb-5">
+                    <h3 class="font-weight-semi-bold">@Model.ProductName</h3>
+                    <div class="d-flex mb-3">
+                        <div class="text-primary mr-2">
+                            <small class="fas fa-star"></small>
+                            <small class="fas fa-star"></small>
+                            <small class="fas fa-star"></small>
+                            <small class="fas fa-star"></small>
+                            <small class="fas fa-star"></small>
+                        </div>
+                    </div>
+                    <p class="mb-4">Còn lại: @Model.Quantity</p>
+                    <h3 style="color:red" class="font-weight-semi-bold mb-4">@Html.FormatValue(@Model.Price, "{0:#,##0}") VNĐ</h3><h3 class="font-weight-semi-bold mb-4"><del>@Html.FormatValue(((@Model.Price / (100 - @Model.Sale)) * 100), "{0:#,##0}") VNĐ</del></h3>
+                    <p class="mb-4">@Model.Description</p>
+                    <div class="d-flex align-items-center mb-4 pt-2">
+                        <a href="@Url.Action("add_shopping_cart", "ShoppingCart", new { pId = Model.ProductID, url = Request.Url.ToString()})">  <input type="button" class="btn btn-primary px-3" value="Thêm vào giỏ hàng"></a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+}
+
+

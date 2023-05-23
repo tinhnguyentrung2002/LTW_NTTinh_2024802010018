@@ -1,0 +1,17 @@
+﻿@model IEnumerable<LTW_NTTinh_2024802010018.Models.OrderDetail>
+@foreach (var item in Model)
+{
+    <tr>
+        <td width="70%">
+            <span style="color:gray" class="font-weight-bold">@item.ProductName</span>
+            <div class="product-qty">
+                <span class="d-block">SL: @item.Quantity</span>
+            </div>
+        </td>
+        <td width="30%">
+            <div class="text-right">
+                <span class="font-weight-bold">@Html.FormatValue(item.Amount, "{0:#,##0}") VNĐ</span>
+            </div>
+        </td>
+    </tr>
+}

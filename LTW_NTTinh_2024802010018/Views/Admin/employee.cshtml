@@ -1,0 +1,48 @@
+﻿@model IEnumerable<LTW_NTTinh_2024802010018.Models.Employee>
+
+@foreach (var item in Model)
+{
+    @Html.Action("user_detail", new { id = item.EmployeeID })
+    <a style="cursor:pointer" class="dropdown-item d-flex align-items-center" data-toggle="modal" data-target="#addModal-@item.EmployeeID">
+        <div class="mr-3">
+            @if (Session["EmployeeID"] != null && Session["EmployeeID"].ToString() == item.EmployeeID)
+            {
+                <div class="icon-circle bg-success">
+                    @if (item.Sex == "Nam")
+                    {
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6.webp" alt="avatar"
+                             class="rounded-circle img-fluid" style="width: 30px;">
+                    }
+                    else
+                    {
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2.webp" alt="avatar"
+                             class="rounded-circle img-fluid" style="width: 300px;">
+                    }
+
+                </div>
+            }
+            else
+            {
+                <div class="icon-circle bg-danger">
+                    @if (item.Sex == "Nam")
+                    {
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6.webp" alt="avatar"
+                             class="rounded-circle img-fluid" style="width: 30px;">
+                    }
+                    else
+                    {
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2.webp" alt="avatar"
+                             class="rounded-circle img-fluid" style="width: 300px;">
+                    }
+
+                </div>
+            }
+
+        </div>
+        <div>         
+            <div class="small text-gray-500">@item.Email</div>
+            <span class="font-weight">@item.EmployeeName - @item.Title </span>
+        </div>
+    </a>
+
+}

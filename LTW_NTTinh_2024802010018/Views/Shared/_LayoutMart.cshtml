@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Images/logo.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="~/Content/owl.carousel.min.css" rel="stylesheet" />
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/mdb.min.css" rel="stylesheet" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <style>
+        .MenuTrang {
+            display: inline;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        @Html.Action("navtop_partial", "Mart")
+    </div>
+    <div class="container-fluid mb-5">
+        <div class="row border-top px-xl-5">
+            @Html.Action("category_partial", "Mart")
+            <div class="col-lg-9">
+                @Html.Action("categorypage_partial", "Mart")
+                <div id="header-carousel" class="carousel slide" data-ride="carousel">
+                    @RenderSection("slider", required: false)
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="body-content1">
+        @RenderBody()
+        @RenderSection("hotproduct", required: false)
+    </div>
+    @RenderSection("provider", required: false)
+    @Html.Action("footer_partial", "Mart")
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/easing.min.js"></script>
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+    <!-- Contact Javascript File -->
+    <script src="~/Scripts/jqBootstrapValidation.min.js"></script>
+    <script src="~/Scripts/contact.js"></script>
+    <!-- Template Javascript -->
+    <script src="~/Scripts/page.js"></script>
+    <script src="~/Scripts/mdb.min.js"></script>
+</body>
+</html>

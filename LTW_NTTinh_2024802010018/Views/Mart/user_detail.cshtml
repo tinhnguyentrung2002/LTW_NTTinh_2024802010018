@@ -1,0 +1,176 @@
+﻿@model LTW_NTTinh_2024802010018.Models.Customer
+
+@{
+    ViewBag.Title = "Thông tin người dùng";
+    Layout = "~/Views/Shared/_LayoutMart.cshtml";
+
+}
+@{
+    string birthDateOnly = Model.Birthday.Date.ToShortDateString();
+}
+<div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">THÔNG TIN CÁ NHÂN</h1>
+        <div class="d-inline-flex">
+            <p class="m-0"><a href="@Url.Action("Index","Mart")">Trang chủ</a></p>
+            <p class="m-0 px-2">-</p>
+            <p class="m-0">Thông tin cá nhân</p>
+        </div>
+    </div>
+</div>
+@if (Model.Sex.ToString().Contains("Nam"))
+{
+    <div class="text-center mb-4">
+        <h2 class="section-title px-5"><span class="px-2">Thông tin cá nhân</span></h2>
+    </div>
+    <div style="padding-top:30px;">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6.webp" alt="avatar"
+                                 class="rounded-circle img-fluid" style="width: 150px;">
+                            <h4 class="my-3">@Html.DisplayFor(model => model.CustomerName)</h4>
+                            <p class="text-muted mb-1">@Html.DisplayFor(model => birthDateOnly)</p>
+                            <p class="text-muted mb-4">@Html.DisplayName("Địa chỉ: ") @Html.DisplayFor(model => model.Address)</p>
+                            <div class="d-flex justify-content-center mb-2">
+                                <a href="@Url.Action("user_edit","Mart", new
+                                    {
+                                        id = Model.CustomerID
+                                    })" class="btn btn-primary" role="button" style="font-size: large;color:white">Chỉnh sửa</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">@Html.DisplayName("Họ và tên")</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Html.DisplayFor(model => model.CustomerName)</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">@Html.DisplayName("Giới tính")</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Html.DisplayFor(model => model.Sex)</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0"> @Html.DisplayName("Số điện thoại")</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Html.DisplayFor(model => model.Phone)</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">@Html.DisplayName("Địa chỉ")</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Html.DisplayFor(model => model.Address)</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">@Html.DisplayName("Ngày sinh")</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Html.DisplayFor(model => birthDateOnly)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div style="padding-top:30px;">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2.webp" alt="avatar"
+                                 class="rounded-circle img-fluid" style="width: 150px;">
+                            <h4 class="my-3">@Html.DisplayFor(model => model.CustomerName)</h4>
+                            <p class="text-muted mb-1">@Html.DisplayFor(model => birthDateOnly)</p>
+                            <p class="text-muted mb-4">@Html.DisplayName("Địa chỉ: ") @Html.DisplayFor(model => model.Address)</p>
+                            <div class="d-flex justify-content-center mb-2">
+                                <a href="@Url.Action("user_edit","Mart", new
+                                    {
+                                        id = Model.CustomerID
+                                    })" class="btn btn-primary" role="button" style="font-size:large;color:white">Chỉnh sửa</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">@Html.DisplayName("Họ và tên")</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Html.DisplayFor(model => model.CustomerName)</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">@Html.DisplayName("Giới tính")</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Html.DisplayFor(model => model.Sex)</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0"> @Html.DisplayName("Số điện thoại")</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Html.DisplayFor(model => model.Phone)</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">@Html.DisplayName("Địa chỉ")</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Html.DisplayFor(model => model.Address)</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">@Html.DisplayName("Ngày sinh")</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Html.DisplayFor(model => birthDateOnly)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

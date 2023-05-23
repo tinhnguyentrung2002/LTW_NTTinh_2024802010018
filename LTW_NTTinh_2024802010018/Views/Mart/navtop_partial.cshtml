@@ -1,0 +1,54 @@
+﻿@using (Html.BeginForm("SearchProduct", "Mart", FormMethod.Get, new { @role = "search" }))
+{
+    <div class="row bg-secondary py-2 px-xl-5">
+        <div class="col-lg-6 d-none d-lg-block">
+            <div class="d-inline-flex align-items-center">
+                <a style="text-decoration:none;font-weight:bold" class="text-dark" href=""><i class="fa fa-map-marker-alt text-primary mr-3"></i>Địa chỉ: 123 Thủ Khoa Huân, Thuận An, Bình Dương </a>
+                <span class="text-muted px-2">|</span>
+
+
+                <a class="text-dark" href="@Url.Action("contact","Mart")">Support</a>
+            </div>
+        </div>
+        <div class="col-lg-6 text-right text-lg-right">
+            <div class="d-inline-flex align-items-center">
+                <a class="text-dark px-2" href="https://www.facebook.com/">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a class="text-dark px-2" href="https://www.twitter.com/">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a class="text-dark px-2" href="https://www.linkedin.com/">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a class="text-dark px-2" href="https://www.instagram.com/">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a class="text-dark pl-2" href="https://www.youtube.com/">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row align-items-center py-3 px-xl-5">
+        <div class="col-lg-3 d-none d-lg-block">
+            <a href="@Url.Action("Index","Mart")" class="text-decoration-none">
+                <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">M</span>Mart</h1>
+            </a>
+        </div>
+        <div class="col-lg-6 col-6 text-left">
+            <form action="">
+
+                <div class="input-group">
+                    <div class="input-group-append">
+                        <input name="strSearch" style="padding: 8px;font-size: large;width:600px" class="form-control" type="text" placeholder="Tìm kiếm..." aria-label="Tìm kiếm..." aria-describedby="btnNavbarSearch" required/>
+                        <button class="btn btn-primary" id="btnNavbarSearch" type="submit"><i style="color:white" class="fas fa-search"></i></button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+        @Html.Action("shopping_cartPartial","ShoppingCart")
+    </div>
+}

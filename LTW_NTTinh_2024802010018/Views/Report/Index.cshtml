@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Báo cáo - Thống kê";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div style="margin:0 auto;padding:5px;border:2px double;width:fit-content;background-color:aliceblue">
+    <a class="btn btn-secondary" href="@Url.Action("Index", "Report", new {id = 1})">Báo cáo nhân viên</a>
+    <a class="btn btn-secondary" href="@Url.Action("Index", "Report", new {id = 2})">Báo cáo tổng doanh thu </a>
+    <a class="btn btn-secondary" href="@Url.Action("Index", "Report", new {id = 3})">Báo cáo sản phẩm</a>
+</div>
+<hr />
+<div style="margin:0 auto ;border: 1px solid;width:fit-content;height:fit-content;border-radius:10px;">
+    @if (ViewBag.id == 1)
+    {
+        @Html.Action("report_emp", "Report")
+        <a style="padding:5px;margin:5px" class="btn btn-outline-success" href="@Url.Action("Export_Employee", "Report")">Xuất file PDF</a>
+        <a style="padding:5px;margin:5px" class="btn btn-outline-info" href="@Url.Action("Export_Employee1", "Report")">Lưu ảnh</a>
+
+    }
+    else if (ViewBag.id == 2)
+    {
+        @Html.Action("report_ord", "Report")
+        <a style="padding:5px;margin:5px" class="btn btn-outline-success" href="@Url.Action("Export_Order", "Report")">Xuất file PDF</a>
+        <a style="padding:5px;margin:5px" class="btn btn-outline-info" href="@Url.Action("Export_Order1", "Report")">Lưu ảnh</a>
+    }
+    else if (ViewBag.id == 3)
+    {
+        @Html.Action("report_prod", "Report")
+        <a style="padding:5px;margin:5px" class="btn btn-outline-success" href="@Url.Action("Export_Product", "Report")">Xuất file PDF</a>
+        <a style="padding:5px;margin:5px" class="btn btn-outline-info" href="@Url.Action("Export_Product1", "Report")">Lưu ảnh</a>
+    }
+    else
+    {
+        <h3 style="border-style: none; text-align: center; border-top-left-radius: 10px; border-top-right-radius: 10px;" class="text-bg-primary">Vui lòng chọn mục muốn báo cáo</h3>
+        <table style="margin:0 auto">
+            <tr>
+                <td class="text-danger" style="text-align:center">Không có dữ liệu</td>
+            </tr>
+        </table>
+
+    }
+</div>
+
+

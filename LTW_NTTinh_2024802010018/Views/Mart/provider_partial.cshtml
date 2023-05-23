@@ -1,0 +1,15 @@
+﻿@model IEnumerable<LTW_NTTinh_2024802010018.Models.Provider>
+<div class="container-fluid py-5">
+    <div class="row px-xl-5">
+        <div class="col">
+            <div class="owl-carousel vendor-carousel">
+                @foreach (var item in Model)
+                {
+                    <div class="vendor-item border p-4">
+                        <img style="height:200px" src="~/Images/@item.Logo" alt="">
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

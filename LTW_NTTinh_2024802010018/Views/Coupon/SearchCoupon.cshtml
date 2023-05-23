@@ -1,0 +1,119 @@
+﻿@model IEnumerable<LTW_NTTinh_2024802010018.Models.Coupon>
+
+@{
+    ViewBag.Title = "Quản lý khuyến mãi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h1 style="text-align:center" class="h3 mb-0 text-gray-800">DANH SÁCH KHUYẾN MÃI</h1>
+@using (Html.BeginForm("SearchCoupon", "Coupon", FormMethod.Get, new { @role = "search" }))
+{
+    <div class="input-group" style="width: 600px; margin: 10px; margin-right: 1000px; font-size: large;">
+        <input name="strSearch" style="padding: 8px; font-size: large;width:200px" class="form-control" type="text" placeholder="Tìm kiếm..." aria-label="Tìm kiếm..." aria-describedby="btnNavbarSearch" />
+        <button style="font-size: large; margin-right: 5px;" class="btn btn-primary" id="btnNavbarSearch" type="submit"><i class="fas fa-search"></i></button>
+        <a data-toggle="modal" data-target="#addModal" class="btn btn-success" role="button" style="font-size:large;margin-left:5px;"><ion-icon name="add-outline" style="font-size:large;color:white"></ion-icon> Thêm mới</a>
+        <a class="btn btn-primary" href="@Url.Action("Coupon_manage", new {id = 1})">Quay lại</a>
+    </div>
+    <div><h3>Kết quả tìm: @ViewBag.Count</h3></div>
+}
+@if (ViewBag.check == 1)
+{
+   <table id="myTable" class="table table-striped table-bordered" style="width:100%; font-size:large;margin-bottom:5px;">
+       <thead>
+           <tr>
+               <th style="text-align: center; width: 120px">
+                   Mã khuyến mãi
+               </th>
+               <th style="text-align: center; width: 180px">
+                   Mô tả
+               </th>
+               <th style="text-align: center; width: 180px">
+                   Giá trị
+               </th>
+               <th style="text-align: center; width: 180px">
+                   Hạn sử dụng
+               </th>
+               <th style="text-align: center; width: 180px">
+                   Trạng thái
+               </th>
+               <th style="text-align: center; width: 130px">
+                   Thao tác
+               </th>
+           </tr>
+       </thead>
+       <tbody>
+           @foreach (var item in Model)
+           {
+               <tr>
+                   <td>
+                       @Html.DisplayFor(modelItem => item.CouponID)
+                   </td>
+                   <td>
+                       @Html.DisplayFor(modelItem => item.CouponDescrption)
+                   </td>
+                   <td>
+                       @Html.DisplayFor(modelItem => item.CouponValue)
+                   </td>
+                   <td>
+                       @Html.DisplayFor(modelItem => item.CouponExpire)
+                   </td>
+                   @if (DateTime.Now < item.CouponExpire)
+                   {
+                       <td style="text-align: center;">
+                           <label class="btn btn-success" for="btn-check">Còn hạn</label>
+                       </td>
+                   }
+                   else
+                   {
+                       <td style="text-align: center;">
+                           <label class="btn btn-danger" for="btn-check">Hết hạn</label>
+                       </td>
+                   }
+                   <td>
+                       <a data-toggle="modal" data-target="#edit-@item.CouponID" class="btn btn-primary" role="button" style="font-size:large">Chỉnh sửa</a>
+                       <a data-toggle="modal" data-target="#del-@item.CouponID" class="btn btn-primary" role="button" style="font-size:large">Xóa</a>
+                       @Html.Action("Create")
+                       @Html.Action("Edit", new { id = item.CouponID })
+                       @Html.Action("Delete", new { id = item.CouponID })
+                   </td>
+               </tr>
+           }
+       </tbody>
+   </table>
+}
+else
+{
+    <table id="myTable" class="table table-striped table-bordered" style="width:100%; font-size:large;margin-bottom:5px;">
+        <thead>
+            <tr>
+                <th style="text-align: center; width: 120px">
+                    Mã khuyến mãi
+                </th>
+                <th style="text-align: center; width: 180px">
+                    Mô tả
+                </th>
+                <th style="text-align: center; width: 180px">
+                    Giá trị
+                </th>
+                <th style="text-align: center; width: 180px">
+                    Hạn sử dụng
+                </th>
+                <th style="text-align: center; width: 180px">
+                    Trạng thái
+                </th>
+                <th style="text-align: center; width: 130px">
+                    Thao tác
+                </th>
+            </tr>
+
+        </thead>
+        <tbody>
+
+            <tr>
+                <td colspan="6">
+                    <h2 style=" text-align:center;font-weight:bold">Không tồn tại</h2>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+}
